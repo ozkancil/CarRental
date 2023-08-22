@@ -1,0 +1,5 @@
+so we get to the db using
+the repository and to save our requests into the db we use service class and through service
+class we get to the repository using a constructor, with that constructor we can save our requests to the db but getting save.
+The repository extends to the jpaRepository. jpaRepository is an interface provided by spring data jpa which is a spring framework.
+The jpa simplifies the interaction between java application and the relational database using the java persistence API (JPA)

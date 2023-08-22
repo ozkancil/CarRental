@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.0</version> <!-- 3.2.0-M1-->
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.carrental</groupId>
+	<artifactId>carrental</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>demo</name>
+	<description>Car Rental Spring Backend project</description>
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.5.3.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-jackson -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+
+
+
+	</dependencies>
+
+	<build>
+
+<plugins>
+
+
+
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-compiler-plugin</artifactId>
+		<configuration>
+			<source>${java.version}
+			</source> <!-- depending on your project. In this example, Java 11 is used -->
+			<target>${java.version}
+			</target> <!-- depending on your project. In this example, Java 11 is used -->
+			<annotationProcessorPaths>
+
+				<path>
+					<groupId>org.mapstruct</groupId>
+					<artifactId>mapstruct-processor</artifactId>
+					<version>1.5.2.Final</version>
+				</path>
+
+				<path>
+					<groupId>org.projectlombok</groupId>
+					<artifactId>lombok</artifactId>
+					<version>1.18.24</version>
+				</path>
+
+				<path>
+					<groupId>org.projectlombok</groupId>
+					<artifactId>lombok-mapstruct-binding</artifactId>
+					<version>0.2.0</version>
+				</path>
+
+			</annotationProcessorPaths>
+		</configuration>
+	</plugin>
+
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-surefire-plugin</artifactId>
+		<version>2.19.1</version>
+	</plugin>
+
+
+<!--		<plugin>-->
+<!--		<groupId>org.apache.maven.plugins</groupId>-->
+<!--		<artifactId>maven-compiler-plugin</artifactId>-->
+<!--		<version>3.8.1</version>-->
+<!--		<configuration>-->
+<!--			<annotationProcessorPaths>-->
+<!--				<path>-->
+<!--					<groupId>org.projectlombok</groupId>-->
+<!--					<artifactId>lombok</artifactId>-->
+<!--					<version>1.18.20</version>-->
+
+
+<!--					<testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>-->
+<!--					<forkCount>1</forkCount>-->
+<!--					<reuseForks>false</reuseForks>-->
+<!--					<argLine>&#45;&#45;enable-preview</argLine>-->
+<!--					<useSystemClassLoader>false</useSystemClassLoader>-->
+<!--					<includes>-->
+<!--						<include>**/*Tests.java</include>-->
+<!--					</includes>-->
+
+<!--				</path>-->
+<!--			</annotationProcessorPaths>-->
+<!--		</configuration>-->
+<!--	</plugin>-->
+
+
+
+
+<!--				<plugin>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--				<configuration>-->
+<!--					<excludes>-->
+<!--						<exclude>-->
+<!--							<groupId>org.projectlombok</groupId>-->
+<!--							<artifactId>lombok</artifactId>-->
+<!--						</exclude>-->
+<!--					</excludes>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
+
+
+
+<!--	<plugin>-->
+<!--		<groupId>org.apache.maven.plugins</groupId>-->
+<!--		<artifactId>maven-surefire-plugin</artifactId>-->
+<!--		<version>3.0.0-M5</version> &lt;!&ndash; Use the latest version of Surefire plugin &ndash;&gt;-->
+<!--		<configuration>-->
+<!--			&lt;!&ndash; ... your existing configuration ... &ndash;&gt;-->
+
+<!--				<source>${java.version}-->
+<!--				</source> &lt;!&ndash; depending on your project. In this example, Java 11 is used &ndash;&gt;-->
+<!--				<target>${java.version}-->
+<!--				</target> &lt;!&ndash; depending on your project. In this example, Java 11 is used &ndash;&gt;-->
+
+
+<!--		</configuration>-->
+<!--	</plugin>-->
+
+
+
+
+
+
+
+
+</plugins>
+
+
+
+
+
+
+	</build>
+
+
+
+
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>

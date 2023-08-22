@@ -1,0 +1,11 @@
+
+Database:
+The actual database stores the data.
+ The Repository layer interacts with the database through
+  JPA or other ORM (Object-Relational Mapping) frameworks.
+
+
+
+Repository Layer:
+The Repository layer (usually using Spring Data JPA) is responsible for interacting with the database. It handles the actual
+CRUD (Create, Read, Update, Delete) operations on entities. The entities represent the data stored in the database tables.

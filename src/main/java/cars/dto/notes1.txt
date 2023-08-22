@@ -1,0 +1,12 @@
+Mapping Between DTOs and Entities:
+DTOs are often used to transfer data between layers,
+ especially between the Controller and Service layers.
+ Mapping between DTOs and entities is typically done using Mapper classes, as we discussed earlier.
+ These Mapper classes convert data from DTOs to entities and vice versa, ensuring that the right data is sent
+ to the database and returned to the client.
+
+
+
+Response:
+Once the data has been processed, the appropriate response is generated.
+ This response can be in various formats, such as JSON or XML, and it's sent back to the client.

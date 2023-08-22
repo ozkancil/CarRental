@@ -1,0 +1,57 @@
+package cars.controller;
+
+import cars.domain.ContactMessage;
+import cars.dto.request.ContactMessageRequest;
+import cars.mapper.ContactMessageMapper;
+import cars.service.ContactMessageService;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/contactmessage")
+public class ContactMessageController {
+private ContactMessageService contactMessageService;
+    private ContactMessageMapper contactMessageMapper;
+    /*
+    Inside the method, contactMessageMapper.contactMessageRequestToContactMessage();
+    is called. This likely represents a mapping from the ContactMessageRequest DTO to the ContactMessage entity
+    object using the ContactMessageMapper. This step is typically used to transform data from one representation
+     (DTO) to another (entity) before it's saved to the database.
+     */
+    //This here saves the DTO message into the entity db
+    //so here we are checking if the request body is valid and using RequestBody we are making sure that the request in the json format turns into an java object form which spring does in the background
+    @PostMapping("visitors")
+    public ResponseEntity<T>createMessage(@Valid @RequestBody ContactMessageRequest contactMessageRequest){
+
+        /*
+        so here we are saying using the mapper interface post the requests to contactMessage entity the db using the mapper interface.
+        In the interface we have told the @Mapper to map the request to the entity and in the controller we are defining this?
+         */
+        ContactMessage contactMessage= contactMessageMapper.contactMessageRequestToContactMessage(contactMessageRequest);
+/*
+we are saying using the contactMessageMapper we are turning contactMessageRequest to ContactMessage. We already defined contactMessageRequestToContactMessage
+in the ContactMessageMapper interface.
+ */
+
+        /*
+        then we will return the contactMessage but the contactMessage must be saved in the server cuz we are POSTing for the clients
+        request. This is done by the service layer.
+         */
+
+
+
+        /*
+        Here we are saving our contactMessage which has received its request from ContactMessageRequest
+        that has been turned into the entity and using the service class it has been saved to the db by the repository extending into the
+        jpaRepository interface that provides a set of methods for performing common database operations like saving, updating, deleting,
+         and querying JPA entities.
+         */
+   contactMessageService.saveMessage(contactMessage);
+
+
+    }
+}
