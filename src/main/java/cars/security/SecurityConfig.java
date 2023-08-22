@@ -78,6 +78,7 @@ public class SecurityConfig {
         return httpSecurity.getSharedObject(AuthenticationManagerBuilder.class)
                 .authenticationProvider(authProvider()).build();
     }
+    //test line 1
 
     @Bean
     public DaoAuthenticationProvider authProvider(){
